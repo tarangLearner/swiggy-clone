@@ -1,7 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const resList = [
+export const resList = [
   {
     info: {
       id: "686198",
@@ -315,58 +312,3 @@ const resList = [
     },
   },
 ];
-
-const Header = () => (
-  <div className="header">
-    <div className="logo">
-      <img src="https://png.pngtree.com/png-clipart/20220628/original/pngtree-food-logo-png-image_8239850.png" />
-    </div>
-    <div className="nav-items">
-      <ul>
-        <li>Home</li>
-        <li>About us</li>
-        <li>Contact us</li>
-        <li>Cart</li>
-      </ul>
-    </div>
-  </div>
-);
-
-const ResCard = (props) => {
-  console.log(props);
-  const { info } = props;
-  return (
-    <div className="res-card">
-      <img
-        src="https://png.pngtree.com/png-clipart/20220628/original/pngtree-food-logo-png-image_8239850.png"
-        style={{ width: "100px" }}
-      />
-      <div>{info.locality}</div>
-      <div>{info.cuisines.join(",")}</div>
-      <div>{info.areaName}</div>
-      <div>{info.avgRating}</div>
-    </div>
-  );
-};
-
-const Body = () => (
-  <div className="body">
-    <div className="search"></div>
-    <div className="res-container">
-      {resList.map((res) => (
-        <ResCard key={res.info.id} {...res} />
-      ))}
-    </div>
-  </div>
-);
-
-const AppLayout = () => (
-  <div className="app-container">
-    <Header />
-    <Body />
-  </div>
-);
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
