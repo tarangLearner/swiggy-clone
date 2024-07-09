@@ -5,6 +5,7 @@ const ResCard = (props) => {
   return (
     <div className="res-card">
       <img src={DUMMY_IMG} style={{ width: "100px" }} />
+      <div>{info.name}</div>
       <div>{info.locality}</div>
       <div>{info.cuisines.join(",")}</div>
       <div>{info.areaName}</div>

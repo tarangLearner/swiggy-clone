@@ -5,6 +5,7 @@ const Body = () => {
   // whenever state variable changes, react reredner with updated values.
   // useState => state variable and method which helps us to update state variable and it will rerender the list
   const [listOfRes, setListOfRes] = useState(resList);
+  const [listForSearchRes, setListForSearchRes] = useState(resList);
 
   return (
     <div className="body">
@@ -20,6 +21,17 @@ const Body = () => {
           }}>
           Top rated restaurants
         </button>
+      </div>
+      <div className="search">
+        <input
+          type="text"
+          onChange={(event) => {
+            const filterList = listOfRes.filter((res) =>
+              res.info.name.includes(event.target.value)
+            );
+            setListOfRes(filterList);
+          }}
+        />
       </div>
       <div className="res-container">
         {listOfRes.map((res) => (
